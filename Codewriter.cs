@@ -8,14 +8,11 @@ namespace VMAssembler
 {
     class Codewriter
     {
-        private int labelPtr, staticPtr;
         private String fName;
 
         public Codewriter(String s)
         {
-            labelPtr = 0;
-            staticPtr = 0;
-            fName = s;
+             fName = s;
         }
 
         public void doArithmetic(String arg, String instr)
@@ -71,16 +68,16 @@ namespace VMAssembler
                     Program.outFile.WriteLine("D=M");
                     Program.outFile.WriteLine("A=A-1");
                     Program.outFile.WriteLine("MD=M-D");
-                    label1 = "lbl" + labelPtr.ToString();
-                    labelPtr++;
+                    label1 = "lbl" + Program.labelPtr.ToString();
+                    Program.labelPtr++;
                     Program.outFile.WriteLine("@" + label1);
                     Program.outFile.WriteLine("D;JEQ");
                     Program.outFile.WriteLine("@SP");
                     Program.outFile.WriteLine("A=M");
                     Program.outFile.WriteLine("A=A-1");
                     Program.outFile.WriteLine("M=0");
-                    label2 = "lbl" + labelPtr.ToString();
-                    labelPtr++;
+                    label2 = "lbl" + Program.labelPtr.ToString();
+                    Program.labelPtr++;
                     Program.outFile.WriteLine("@" + label2);
                     Program.outFile.WriteLine("0;JMP");
                     Program.outFile.WriteLine("(" + label1 + ")");
@@ -96,16 +93,16 @@ namespace VMAssembler
                     Program.outFile.WriteLine("D=M");
                     Program.outFile.WriteLine("A=A-1");
                     Program.outFile.WriteLine("MD=M-D");
-                    label1 = "lbl" + labelPtr.ToString();
-                    labelPtr++;
+                    label1 = "lbl" + Program.labelPtr.ToString();
+                    Program.labelPtr++;
                     Program.outFile.WriteLine("@" + label1);
                     Program.outFile.WriteLine("D;JLT");
                     Program.outFile.WriteLine("@SP");
                     Program.outFile.WriteLine("A=M");
                     Program.outFile.WriteLine("A=A-1");
                     Program.outFile.WriteLine("M=0");
-                    label2 = "lbl" + labelPtr.ToString();
-                    labelPtr++;
+                    label2 = "lbl" + Program.labelPtr.ToString();
+                    Program.labelPtr++;
                     Program.outFile.WriteLine("@" + label2);
                     Program.outFile.WriteLine("0;JMP");
                     Program.outFile.WriteLine("(" + label1 + ")");
@@ -121,16 +118,16 @@ namespace VMAssembler
                     Program.outFile.WriteLine("D=M");
                     Program.outFile.WriteLine("A=A-1");
                     Program.outFile.WriteLine("MD=M-D");
-                    label1 = "lbl" + labelPtr.ToString();
-                    labelPtr++;
+                    label1 = "lbl" + Program.labelPtr.ToString();
+                    Program.labelPtr++;
                     Program.outFile.WriteLine("@" + label1);
                     Program.outFile.WriteLine("D;JGT");
                     Program.outFile.WriteLine("@SP");
                     Program.outFile.WriteLine("A=M");
                     Program.outFile.WriteLine("A=A-1");
                     Program.outFile.WriteLine("M=0");
-                    label2 = "lbl" + labelPtr.ToString();
-                    labelPtr++;
+                    label2 = "lbl" + Program.labelPtr.ToString();
+                    Program.labelPtr++;
                     Program.outFile.WriteLine("@" + label2);
                     Program.outFile.WriteLine("0;JMP");
                     Program.outFile.WriteLine("(" + label1 + ")");
